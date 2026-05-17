@@ -26,3 +26,13 @@
 """
 
 ip = "192.168.3.1"
+
+rip = ip.split(".")
+#bin1= bin(rip[0])
+
+ip_template = '''
+{:<8}  {:<8}  {:<8}  {:<8}
+{:>08b}  {:>08b}  {:>08b}  {:>08b}
+'''
+
+print(ip_template.format(int(rip[0]), int(rip[1]), int(rip[2]), int(rip[3]), int(rip[0]), int(rip[1]), int(rip[2]), int(rip[3])))
