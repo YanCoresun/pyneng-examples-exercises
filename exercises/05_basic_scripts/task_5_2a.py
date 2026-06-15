@@ -49,3 +49,46 @@ bin_ip = "00001010000000010000000111000011"
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+
+
+
+networks = str("10.0.1.1/24")
+
+address = networks.split('/')
+
+network = address[0]
+
+
+
+rip = network.split(".")
+
+ip_template = '''
+Network:
+{:<8}  {:<8}  {:<8}  {:<8}
+{:>08b}  {:>08b}  {:>08b}  {:>08b}
+'''
+
+network_done = (ip_template.format(int(rip[0]), int(rip[1]), int(rip[2]), int(rip[3]), int(rip[0]), int(rip[1]), int(rip[2]), int(rip[3])))
+
+mask = address[1]
+
+bin_mask_network = 32 - int(mask)
+
+
+bin_mask = "1" * ( 32 - int(bin_mask_network)) + "0" * int(bin_mask_network)
+
+octet_1 = (bin_mask[0:8])
+octet_2 = (bin_mask[8:16])
+octet_3 = (bin_mask[16:24])
+octet_4 = (bin_mask[24:32])
+
+bin_octet_1 = int(octet_1, 2)
+bin_octet_2 = int(octet_2, 2)
+bin_octet_3 = int(octet_3, 2)
+bin_octet_4 = int(octet_4, 2)
+
+print(network_done, f'''
+Mask:
+/{mask}
+{bin_octet_1:<9} {bin_octet_2:<9} {bin_octet_3:<9} {bin_octet_4:<9}
+{octet_1}  {octet_2}  {octet_3}  {octet_4}''')
