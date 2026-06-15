@@ -20,6 +20,7 @@ $ python task_5_1.py
 Все задания надо выполнять используя только пройденные темы. То есть эту задачу можно
 решить без использования условия if.
 """
+from sys import argv
 
 london_co = {
     "r1": {
@@ -46,3 +47,35 @@ london_co = {
         "routing": True,
     },
 }
+
+
+
+#device = input('Введите имя устройства: ')
+#print('\n' + '-' * 30)
+
+
+#print('interface {}'.format(interface))
+#print('\n'.join(london_co).format(device))
+
+
+device = input("Введите имя устройства: ")
+print(london_co[device])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
